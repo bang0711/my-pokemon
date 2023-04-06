@@ -68,7 +68,9 @@ function PokeFeed({ name, weight, id, image, type }: Props) {
           : "bg-[#ef99ef]/50"
       }`}
     >
-      <div className="absolute top-2 left-2">{id}</div>
+      <div className="absolute top-2 left-2 text-white text-lg font-semibold">
+        {id}
+      </div>
       <Image
         src={image}
         alt={name}
@@ -77,10 +79,52 @@ function PokeFeed({ name, weight, id, image, type }: Props) {
         loading="lazy"
         className="pokemonShadow"
       />
-      <div className="flex flex-col items-center justify-center">
-        <h1 className="text-xl text-white font-bold uppercase">{name}</h1>
-        <p>Weight: {weight / 10} kg</p>
-        <div className="flex items-center gap-2 justify-between mt-4 ">
+      <div className="flex w-full flex-col items-center justify-center">
+        <h1
+          className={`text-xl text-center flex items-center justify-center font-bold uppercase mt-2 max-w-[100px] ${
+            type[0] === "grass"
+              ? "text-[#76cc54]"
+              : type[0] === "fire"
+              ? "text-[#ff4422]"
+              : type[0] === "water"
+              ? "text-[#3299fe]"
+              : type[0] === "electric"
+              ? "text-[#ffcd32]"
+              : type[0] === "normal"
+              ? "text-[#aaaa99]"
+              : type[0] === "ice"
+              ? "text-[#67cdff]"
+              : type[0] === "fighting"
+              ? "text-[#ba5545]"
+              : type[0] === "poison"
+              ? "text-[#7f3f72]"
+              : type[0] === "ground"
+              ? "text-[#ddba54]"
+              : type[0] === "flying"
+              ? "text-[#8898fe]"
+              : type[0] === "psychic"
+              ? "text-[#ff5599]"
+              : type[0] === "bug"
+              ? "text-[#abba22]"
+              : type[0] === "rock"
+              ? "text-[#baab66]"
+              : type[0] === "ghost"
+              ? "text-[#6667ba]"
+              : type[0] === "dragon"
+              ? "text-[#765545]"
+              : type[0] === "dark"
+              ? "text-[#765545]"
+              : type[0] === "steel"
+              ? "text-[#ababbb]"
+              : "text-[#ef99ef]"
+          }`}
+        >
+          {name}
+        </h1>
+        <p className="text-white font-semibold text-md">
+          Weight: {weight / 10} kg
+        </p>
+        <div className="flex items-center my-3 gap-10 ">
           {type.map((t) => {
             let image;
             if (t === "bug") {
@@ -93,7 +137,6 @@ function PokeFeed({ name, weight, id, image, type }: Props) {
                     src={bug}
                     alt="Bug type"
                   />
-                  <span className="absolute w-12 h-12 top-0 bg-[#abba22] blur-xl brightness-200"></span>
                 </div>
               );
             } else if (t === "dark") {
@@ -106,7 +149,6 @@ function PokeFeed({ name, weight, id, image, type }: Props) {
                     src={dark}
                     alt="Bug type"
                   />
-                  <span className="absolute w-12 h-12 top-0 bg-[#765545] blur-xl brightness-200"></span>
                 </div>
               );
             } else if (t === "dragon") {
@@ -119,7 +161,6 @@ function PokeFeed({ name, weight, id, image, type }: Props) {
                     src={dragon}
                     alt="Bug type"
                   />
-                  <span className="absolute w-12 h-12 top-0 bg-[#765545] blur-xl brightness-200"></span>
                 </div>
               );
             } else if (t === "electric") {
@@ -132,7 +173,6 @@ function PokeFeed({ name, weight, id, image, type }: Props) {
                     src={electric}
                     alt="Bug type"
                   />
-                  <span className="absolute w-12 h-12 top-0 bg-[#ffcd32] blur-xl brightness-200"></span>
                 </div>
               );
             } else if (t === "fairy") {
@@ -145,7 +185,6 @@ function PokeFeed({ name, weight, id, image, type }: Props) {
                     src={fairy}
                     alt="Bug type"
                   />
-                  <span className="absolute w-12 h-12 top-0 bg-[#ef99ef] blur-xl brightness-200"></span>
                 </div>
               );
             } else if (t === "fighting") {
@@ -158,7 +197,6 @@ function PokeFeed({ name, weight, id, image, type }: Props) {
                     src={fighting}
                     alt="Bug type"
                   />
-                  <span className="absolute w-12 h-12 top-0 bg-[#ba5545] blur-xl brightness-200"></span>
                 </div>
               );
             } else if (t === "fire") {
@@ -171,7 +209,6 @@ function PokeFeed({ name, weight, id, image, type }: Props) {
                     src={fire}
                     alt="Bug type"
                   />
-                  <span className="absolute w-12 h-12 top-0 bg-[#ff4422] blur-xl brightness-200"></span>
                 </div>
               );
             } else if (t === "flying") {
@@ -184,7 +221,6 @@ function PokeFeed({ name, weight, id, image, type }: Props) {
                     src={flying}
                     alt="Bug type"
                   />
-                  <span className="absolute w-12 h-12 top-0 bg-[#8898fe] blur-xl brightness-200"></span>
                 </div>
               );
             } else if (t === "ghost") {
@@ -197,7 +233,6 @@ function PokeFeed({ name, weight, id, image, type }: Props) {
                     src={ghost}
                     alt="Bug type"
                   />
-                  <span className="absolute w-12 h-12 top-0 bg-[#6667ba] blur-xl brightness-200"></span>
                 </div>
               );
             } else if (t === "grass") {
@@ -210,7 +245,6 @@ function PokeFeed({ name, weight, id, image, type }: Props) {
                     src={grass}
                     alt="Bug type"
                   />
-                  <span className="absolute w-12 h-12 top-0 bg-[#76cc54] blur-xl brightness-200"></span>
                 </div>
               );
             } else if (t === "ground") {
@@ -223,7 +257,6 @@ function PokeFeed({ name, weight, id, image, type }: Props) {
                     src={ground}
                     alt="Bug type"
                   />
-                  <span className="absolute w-12 h-12 top-0 bg-[#ddba54] blur-xl brightness-200"></span>
                 </div>
               );
             } else if (t === "ice") {
@@ -236,7 +269,6 @@ function PokeFeed({ name, weight, id, image, type }: Props) {
                     src={ice}
                     alt="Bug type"
                   />
-                  <span className="absolute w-12 h-12 top-0 bg-[#67cdff] blur-xl brightness-200"></span>
                 </div>
               );
             } else if (t === "normal") {
@@ -249,7 +281,6 @@ function PokeFeed({ name, weight, id, image, type }: Props) {
                     src={normal}
                     alt="Bug type"
                   />
-                  <span className="absolute w-12 h-12 top-0 bg-[#aaaa99] blur-xl brightness-200"></span>
                 </div>
               );
             } else if (t === "poison") {
@@ -262,7 +293,6 @@ function PokeFeed({ name, weight, id, image, type }: Props) {
                     src={poison}
                     alt="Bug type"
                   />
-                  <span className="absolute w-12 h-12 top-0 bg-[#7f3f72] blur-xl brightness-200"></span>
                 </div>
               );
             } else if (t === "psychic") {
@@ -275,7 +305,6 @@ function PokeFeed({ name, weight, id, image, type }: Props) {
                     src={psychic}
                     alt="Bug type"
                   />
-                  <span className="absolute w-12 h-12 top-0 bg-[#ff5599] blur-xl brightness-200"></span>
                 </div>
               );
             } else if (t === "rock") {
@@ -289,7 +318,6 @@ function PokeFeed({ name, weight, id, image, type }: Props) {
                     alt="Bug type"
                     key={t}
                   />
-                  <span className="absolute w-12 h-12 top-0 bg-[#6667ba] blur-xl brightness-200"></span>
                 </div>
               );
             } else if (t === "steel") {
@@ -303,7 +331,6 @@ function PokeFeed({ name, weight, id, image, type }: Props) {
                     alt="Bug type"
                     key={t}
                   />
-                  <span className="absolute w-12 h-12 top-0 bg-[#ababbb] blur-xl brightness-200"></span>
                 </div>
               );
             } else if (t === "water") {
@@ -317,7 +344,6 @@ function PokeFeed({ name, weight, id, image, type }: Props) {
                     alt="Bug type"
                     key={t}
                   />
-                  <span className="absolute w-12 h-12 top-0 bg-[#3299fe] blur-xl brightness-200"></span>
                 </div>
               );
             } else {

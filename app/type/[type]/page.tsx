@@ -41,7 +41,7 @@ async function TypePokemon({ params: { type } }: PageProps) {
   );
   return (
     <div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 px-3 gap-4 lg:grid-cols-5 xl:grid-cols-6">
         {filteredData.map((pokemon: Pokemon) => (
           <Link
             href={`/pokemon/${pokemon.name}`}
