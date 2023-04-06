@@ -18,6 +18,13 @@ interface IPokemon {
   base_experience: number;
   sprites: { front_shiny: string };
   types: { type: { name: string } }[];
+  stats: {
+    base_stat: number;
+    stat: {
+      name: string;
+      url: string;
+    };
+  }[];
 }
 
 function Page({ params: { pokemonId } }: Props) {
@@ -38,6 +45,15 @@ function Page({ params: { pokemonId } }: Props) {
   if (!pokemon) {
     return <h1>No Results</h1>;
   }
+
+  const statsData = JSON.parse(
+    ' [{"base_stat":106,"effort":0,"stat":{"name":"hp","url":"https://pokeapi.co/api/v2/stat/1/"}},{"base_stat":90,"effort":0,"stat":{"name":"attack","url":"https://pokeapi.co/api/v2/stat/2/"}},{"base_stat":130,"effort":0,"stat":{"name":"defense","url":"https://pokeapi.co/api/v2/stat/3/"}},{"base_stat":90,"effort":0,"stat":{"name":"special-attack","url":"https://pokeapi.co/api/v2/stat/4/"}},{"base_stat":154,"effort":3,"stat":{"name":"special-defense","url":"https://pokeapi.co/api/v2/stat/5/"}},{"base_stat":110,"effort":0,"stat":{"name":"speed","url":"https://pokeapi.co/api/v2/stat/6/"}}]'
+  );
+
+  const stats = pokemon.stats.map(({ base_stat, stat }) => ({
+    baseStat: base_stat,
+    name: stat.name,
+  }));
 
   const abilityNames = pokemon.abilities.map(({ ability }) => ability.name);
   const moveNames = pokemon.moves.map(({ move }) => move.name);
@@ -81,6 +97,16 @@ function Page({ params: { pokemonId } }: Props) {
       <h1 className="detail">Abilities: {abilityNames.join(", ")}</h1>
       <h1 className="detail">Base Experience: {pokemon.base_experience}</h1>
       <h1 className="detail">Moves: {moveNames.join(", ")}</h1>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+        {stats.map(({ baseStat, name }) => (
+          <div key={name}>
+            <p className="text-white text-xl font-semibold">
+              {name}: {baseStat}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
