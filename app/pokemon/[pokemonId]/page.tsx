@@ -16,7 +16,7 @@ interface IPokemon {
   abilities: { ability: { name: string } }[];
   moves: { move: { name: string } }[];
   base_experience: number;
-  sprites: { back_default: string };
+  sprites: { front_shiny: string };
   types: { type: { name: string } }[];
 }
 
@@ -48,7 +48,7 @@ function Page({ params: { pokemonId } }: Props) {
         name={pokemon.name}
         weight={pokemon.weight}
         id={pokemon.id}
-        image={pokemon.sprites.back_default}
+        image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`}
         type={pokemon.types.map(({ type }) => type.name)}
       />
       <h1>Abilities: {abilityNames.join(", ")}</h1>

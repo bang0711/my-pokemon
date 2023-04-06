@@ -14,16 +14,18 @@ export default function SearchBar({}) {
       alert("Maximum id is 651");
     } else router.push(`/pokemon/${query.toLowerCase()}`);
   };
-
   return (
-    <form onSubmit={handleSubmit} className="flex items-center justify-center">
+    <form
+      onSubmit={handleSubmit}
+      className={`flex items-center flex-col sm:flex-row gap-2 justify-center `}
+    >
       <input
         placeholder="Enter ID or Name"
         type="text"
         id="search"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        className="py-2 mx-2 px-1 rounded-xl max-w-[200px] shadow-md shadow-black focus:outline-none focus:shadow-lg focus:shadow-black transition-all duration-500 focus:scale-105"
+        className="py-2 flex-1 mx-2 px-1 rounded-xl shadow-md shadow-black focus:outline-none focus:shadow-lg focus:shadow-black transition-all duration-500 focus:scale-105"
       />
       <button
         disabled={!query}

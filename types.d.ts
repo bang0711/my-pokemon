@@ -1,5 +1,6 @@
 type Pokemon = {
   sprites: any;
+  home: any;
   types: any;
   name: string;
   weight: number;

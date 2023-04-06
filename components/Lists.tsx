@@ -143,7 +143,7 @@ function Lists({}: Props) {
           </div>
         ) : (
           <div
-            className="cursor-pointer fixed z-50 top-[100px] right-2 bg-black/50 rounded-full"
+            className="cursor-pointer fixed z-50 top-[100px] right-2 bg-white rounded-full"
             onClick={() => setShow(true)}
           >
             <svg
