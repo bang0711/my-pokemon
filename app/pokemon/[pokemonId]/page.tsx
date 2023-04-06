@@ -43,7 +43,7 @@ function Page({ params: { pokemonId } }: Props) {
   const moveNames = pokemon.moves.map(({ move }) => move.name);
 
   return (
-    <div className="flex flex-col justify-center items-center px-5">
+    <div className="flex flex-col justify-center py-4 items-center px-5">
       <div className="flex items-center justify-between gap-4">
         <PokeFeed
           name={pokemon.name}
